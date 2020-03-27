@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get It Done</title>
+    <link rel="icon" href="images/favicons/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesheets/main.css">
+</head>
+<body>
+    
+
+<div id="menu-section">
+    <input type="checkbox" id="menu">
+    <aside id="menu-controller">
+        <label for="menu" class="icon"></label>
+    </aside>
+    <div id="menu-dimmed-bg"></div>
+    <div id="menu-content">
+        <header>
+            <h4 class="bold">Get It Done</h4>
+            <label for="menu" class="icon"></label>
+        </header>
+        <section id="theme">
+            <h5 id="bold">Theme:
+                <span id="light" class="current-theme">Light</span>
+                <span id="dark">Dark</span>
+            </h5>
+        </section>
+        <section id="completed-tasks">
+            <h5 class="bold">Recently Completed Tasks</h5>
+            <ul id="completed-task-list">
+                <li class="invert">Walk Dog: <span>25th April</span></li>
+                <li class="invert">Walk Cat: <span>25th April</span></li>
+                <li class="invert">Record Video: <span>25th April</span></li>
+                <li class="invert">Sleep: <span>25th April</span></li>
+            </ul>
+        </section>
+
+        <h5 id="reset" class="bold" >Reset All</h5>
+    </div>
+</div>
+
+<section id="main">
+    <article id="header" class="black">
+        <header>
+            <h1>To Do App</h1>
+            <h2>It helps you to GET IT DONE</h2>
+        </header>
+        <header>
+            <div>
+                <h3>Total Tasks</h3>
+                <h4 id="total">0</h4>
+            </div>
+            <div>
+                <h3>Completed Tasks</h3>
+                <h4 id="Completed">0</h4>
+            </div>
+        </header>
+    </article>
+
+    <article id="input-section" class="black">
+        <input type="text" id="task-input" placeholder="Create Task">
+        <label>Press Enter to create</label>
+        <ul id="task-list" class="bold">
+            <li>Do stuff</li>
+            <li>Do stuff</li>
+            <li>Do stuff</li>
+        </ul>
+    </article>
+
+</section>
+
+<dialog id="model" open>
+    <h2 class="bold">
+        This will reset all associated Data <br>
+        Are You sure you want to do that! <br>
+        <button class="bold">Yes</button>
+        <button class="bold">No</button>
+
+    </h2>
+</dialog>
+
+
+
+    <script src="js/date_format.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/storage.js"></script>
+    <script src="js/tasks.js"></script>
+</body>
+</html>
