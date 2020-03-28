@@ -24,8 +24,8 @@
         </header>
         <section id="theme">
             <h5 id="bold">Theme:
-                <span id="light" class="current-theme">Light</span>
-                <span id="dark">Dark</span>
+                <span id="light" class="current-theme" onclick="updateTheme('light')">Light</span>
+                <span id="dark" onclick="updateTheme('dark')">Dark</span>
             </h5>
         </section>
         <section id="completed-tasks">
@@ -38,7 +38,7 @@
             </ul>
         </section>
 
-        <h5 id="reset" class="bold" >Reset All</h5>
+        <h5 id="reset" class="bold" onclick="attemptReset()" >Reset All</h5>
     </div>
 </div>
 
@@ -72,12 +72,12 @@
 
 </section>
 
-<dialog id="model" open>
+<dialog id="model">
     <h2 class="bold">
         This will reset all associated Data <br>
         Are You sure you want to do that! <br>
-        <button class="bold">Yes</button>
-        <button class="bold">No</button>
+        <button class="bold" onclick="closeModal(); reset()">Yes</button>
+        <button class="bold" onclick="closeModal()">No</button>
 
     </h2>
 </dialog>

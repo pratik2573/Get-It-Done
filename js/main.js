@@ -49,6 +49,8 @@ readTasks(completedTaskStore,function (tasks) {
 }
 function onLoad() {
     updateTasks();
+    updateTheme(loadData("toDoTheme"));
+    document.body.style.display= 'flex';
     // deleteAllTasks(taskStore);
     // saveData("totalTasks",0)
 }
@@ -68,7 +70,7 @@ function deleteTaskOnClick(elem) {
                     saveData("totalTasks", amountOfTasks);
                     totalTasks.innerHTML = loadData("totalTasks");
 
-                    let amountOfCompleted = Number(loadData("completedTasks"));
+                    let amountOfCompleted = Number(loadData("completedTasks")) + 1;
                     saveData("completedTasks",amountOfCompleted);
                     completedTasks.innerHTML = loadData("completedTasks");
                     updateTasks();
@@ -90,10 +92,63 @@ input.addEventListener("keydown", function (e) {
             updateTasks();
         })
     }
-})
+});
+
+function updateTheme(theme) {
+    console.log(theme);
+    let bgColor = theme == 'light' ? "255,255,255":"19,19,19";
+    let textColor = theme == 'light' ? "12,12,12":"255,255,255"; 
+    let shadowColor = theme == 'light' ? "0,0,0": "255,255,255"; 
+    let grad1 = theme == 'light' ? "180,29,103":"34,208,163";
+    let grad2 = theme == 'light' ? "100,25,148":"32,173,211";
+    let sideGrad1 = theme == 'light' ? "255,255,255":"35,35,35"; 
+    let sideGrad2 = theme == 'light' ? "251,247,247":"46,46,46";
+
+    let root = document.documentElement;
+    root.style.setProperty("--bg-color", bgColor);
+    root.style.setProperty("--text-color", textColor);
+    root.style.setProperty("--shadow-color", shadowColor);
+    root.style.setProperty("--gradient-1", grad1);
+    root.style.setProperty("--gradient-2", grad2);
+    root.style.setProperty("--sidebar-gradient-1", sideGrad1);
+    root.style.setProperty("--sidebar-gradient-2", sideGrad2);
 
 
+    document.getElementsByClassName("current-theme")[0].classList.remove("current-theme");
+
+    let activateClass = theme == 'light' ? "light":"dark";
+
+    document.getElementById(activateClass).classList.add("current-theme");
+
+    saveData("toDoTheme",theme);
+
+    let invertStrength = theme == 'light' ? "0%":"100%";
+    let icons = document.getElementsByClassName("icon");
+    for (let i = 0; i < icons.length; i++) {
+        icons[i].style.filter = `brightness(100%) invert(${invertStrength})`;
+        
+    }
 
 
+}
 
+function attemptReset() {
+    model.showModal();
+}
+
+
+function closeModal() {
+    model.close();
+}
+
+function reset() {
+    saveData("totalTasks", 0);
+    totalTasks.innerHTML = "0";
+    saveData("completedTasks", 0);
+    completedTasks.innerHTML = "0";
+
+    deleteAllTasks(taskStore);
+    deleteAllTasks(completedTaskStore);
+    updateTasks();
+}
 

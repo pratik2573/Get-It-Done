@@ -26,6 +26,7 @@
     background-color: rgba(var(--bg-color), 1);
     margin-left: 3rem;
     padding: 5rem 3rem;
+    display: flex;
     justify-content: space-around;
     transition: all 0.5s; }
     #header header:hover {
@@ -121,7 +122,6 @@
   position: fixed;
   z-index: 100;
   top: 50%;
-  display: none;
   outline: none;
   transform: translateY(-50%); }
   #model h2 {
