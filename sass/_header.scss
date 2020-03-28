@@ -11,13 +11,15 @@
         background-color: rgba(var(--bg-color) , 1);
         margin-left: 3rem;
         padding: 5rem 3rem;
-        display: flex;
-        justify-content: space-around;
         transition: all 0.5s;
         &:hover{
             box-shadow: 0 10px 20px rgba(var(--text-color) , .19), 0 6px 6px rgba(var(--text-color) , 0.23);
 
         }
+    }
+    #last-one{
+        display: flex;
+        justify-content: space-around;
     }
     header div{
         display: flex;
